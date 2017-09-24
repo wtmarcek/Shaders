@@ -61,6 +61,7 @@
      <None Include="Assets\_Downloads\StoneWalls\readme.txt" />
      <None Include="Assets\Shaders\ShadersScripts\Lighting\Toon.shader" />
      <None Include="Assets\Shaders\ShadersScripts\RadiusShader.shader" />
+     <None Include="Assets\Shaders\ShadersScripts\Lighting\BlinnPhong.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>G:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
