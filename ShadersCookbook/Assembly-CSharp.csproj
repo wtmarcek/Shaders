@@ -51,12 +51,15 @@
      <None Include="Assets\Shaders\ShadersScripts\Transparency.shader" />
      <None Include="Assets\Shaders\ShadersScripts\Hologram.shader" />
      <None Include="Assets\Shaders\ShadersScripts\ScrollingUV.shader" />
+     <None Include="Assets\Shaders\ShadersScripts\Lighting\PhongSpecular.shader" />
      <None Include="Assets\Shaders\ShadersScripts\Blending.shader" />
      <None Include="Assets\Shaders\ShadersScripts\StandardDiffuse.shader" />
      <None Include="Assets\Shaders\ShadersScripts\NormalMap.shader" />
+     <None Include="Assets\Shaders\ShadersScripts\Lighting\FirstLightingShader.shader" />
      <None Include="Assets\Shaders\ShadersScripts\Diffuse.shader" />
      <None Include="Assets\Shaders\ShadersScripts\Silhouette.shader" />
      <None Include="Assets\_Downloads\StoneWalls\readme.txt" />
+     <None Include="Assets\Shaders\ShadersScripts\Lighting\Toon.shader" />
      <None Include="Assets\Shaders\ShadersScripts\RadiusShader.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>G:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
