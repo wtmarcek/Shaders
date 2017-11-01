@@ -29,13 +29,13 @@ public class BlackHoleEffect : MonoBehaviour
     private void OnEnable()
     {
         cam = GetComponent<Camera>();
-        ratio = 1f / cam.aspect;
+        ratio = 1 / cam.aspect;
     }
 
     private void OnDisable()
     {
         if (_material)
-            Destroy(_material);
+            DestroyImmediate(_material);
     }
 
     Vector3 blackHoleScreenPos;
