@@ -57,6 +57,7 @@
      <None Include="Assets\Shaders\ShadersScripts\NormalMap.shader" />
      <None Include="Assets\Shaders\ShadersScripts\Lighting\FirstLightingShader.shader" />
      <None Include="Assets\Shaders\ShadersScripts\Diffuse.shader" />
+     <None Include="Assets\Shaders\ShadersScripts\Lighting\AnistropicSpecular.shader" />
      <None Include="Assets\Shaders\ShadersScripts\Silhouette.shader" />
      <None Include="Assets\_Downloads\StoneWalls\readme.txt" />
      <None Include="Assets\Shaders\ShadersScripts\Lighting\Toon.shader" />
