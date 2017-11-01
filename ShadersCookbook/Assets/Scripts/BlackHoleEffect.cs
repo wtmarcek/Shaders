@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Camera))]
-public class BlackHoleEffect : MonoBehaviour {
+[ExecuteInEditMode] [RequireComponent(typeof(Camera))]
+public class BlackHoleEffect : MonoBehaviour
+{
 
     public Shader shader;
     public Transform blackHoleTrans;
-    public float ratio;
-    public float radius;
+    public float ratio = 1;
+    public float radius = 0;
 
     private Camera cam;
     private Material _material;
@@ -16,7 +17,7 @@ public class BlackHoleEffect : MonoBehaviour {
     {
         get
         {
-            if (material == null)
+            if (_material == null)
             {
                 _material = new Material(shader);
                 _material.hideFlags = HideFlags.HideAndDontSave;
@@ -42,7 +43,7 @@ public class BlackHoleEffect : MonoBehaviour {
     {
         if (shader && material && blackHoleTrans)
         {
-            Vector3 holeScreenPos = cam.WorldToScreenPoint(blackHoleTrans.position);
+            blackHoleScreenPos = cam.WorldToScreenPoint(blackHoleTrans.position);
 
             if (blackHoleScreenPos.z > 0)
             {
@@ -56,7 +57,6 @@ public class BlackHoleEffect : MonoBehaviour {
 
                 Graphics.Blit(source, destination, material);
             }
-
         }
     }
 }

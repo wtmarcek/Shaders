@@ -2,51 +2,64 @@
 {
 	Properties
 	{
-		_MainTex ("Texture", 2D) = "white" {}
+		_MainTex ("Base (RGB)", 2D) = "white" {}
 	}
 	SubShader
 	{
-		// No culling or depth
-		Cull Off ZWrite Off ZTest Always
-
 		Pass
 		{
+			Cull Off ZWrite Off ZTest Always
+
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
+			#pragma fragmentoption ARB_precision_hint_fastest 
+			#include "UnityCG.cginc"
 			
 			#include "UnityCG.cginc"
 
-			struct appdata
-			{
-				float4 vertex : POSITION;
-				float2 uv : TEXCOORD0;
-			};
+			uniform sampler2D _MainTex;
+			uniform float2 _Position;
+			uniform float _Rad;
+			uniform float _Ratio;
+			uniform float _Distance;
 
 			struct v2f
 			{
-				float2 uv : TEXCOORD0;
-				float4 vertex : SV_POSITION;
+				float4 pos : POSITION;
+				float2 uv : TEXTCOORD0;
 			};
 
-			v2f vert (appdata v)
+			v2f vert(appdata_img v)
 			{
 				v2f o;
-				o.vertex = UnityObjectToClipPos(v.vertex);
-				o.uv = v.uv;
+				o.pos = UnityObjectToClipPos(v.vertex);
+				o.uv = v.texcoord;
 				return o;
 			}
-			
-			sampler2D _MainTex;
 
-			fixed4 frag (v2f i) : SV_Target
+			fixed4 frag (v2f i) : COLOR
 			{
-				fixed4 col = tex2D(_MainTex, i.uv);
-				// just invert the colors
-				col = 1 - col;
-				return col;
+				float2 offset = i.uv - _Position;
+				float2 ratio = {_Ratio, 1};
+				float rad = length(offset / ratio); // the distance from the conventional "center" of the screen.
+				float deformation = 1 / pow(rad*pow(_Distance, 0.5), 2)*_Rad * 2; // einstein black magic
+
+				offset = offset * (1 - deformation);
+				offset += _Position;
+
+				half4 res = tex2D(_MainTex, offset);
+
+				if (rad*_Distance<pow(0.3 * _Rad / _Distance, 0.5)*_Distance)
+				{
+					res = half4(0, 0, 0, 1);
+				}
+
+				return res;
 			}
 			ENDCG
 		}
 	}
+
+	Fallback off
 }
