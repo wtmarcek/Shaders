@@ -1,4 +1,4 @@
-﻿Shader "Marcek/Fragment/UsingGrabPass" {
+﻿Shader "Marcek/Fragment/GlassDistortion" {
 
 Properties
 {
