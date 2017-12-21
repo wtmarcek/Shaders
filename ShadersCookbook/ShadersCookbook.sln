@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShadersCookbook", "ShadersCookbook.csproj", "{260208DD-EA4B-6CF1-D63A-99A595CF47A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShadersCookbook.Editor", "ShadersCookbook.Editor.csproj", "{7819F16B-6522-CE70-1DBA-D505D176384C}"
