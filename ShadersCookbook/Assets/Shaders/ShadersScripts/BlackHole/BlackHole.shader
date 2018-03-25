@@ -43,7 +43,7 @@
 				float2 offset = i.uv - _Position;
 				float2 ratio = {_Ratio, 1};
 				float rad = length(offset / ratio); // the distance from the conventional "center" of the screen.
-				float deformation = 1 / pow(rad*pow(_Distance, 0.5), 2)*_Rad * 2; // einstein black magic
+				float deformation = 1 / pow(rad*pow(_Distance, 0.5), 2)*_Rad * 2; // einstein black magic (gravitational lensing)
 
 				offset = offset * (1 - deformation);
 				offset += _Position;

@@ -15,14 +15,12 @@ public class IndirectInstancing : MonoBehaviour
 
     void Start()
     {
-
         argsBuffer = new ComputeBuffer(1, args.Length * sizeof(uint), ComputeBufferType.IndirectArguments);
         UpdateBuffers();
     }
 
     void Update()
     {
-
         // Update starting position buffer
         if (cachedInstanceCount != instanceCount)
             UpdateBuffers();
@@ -53,11 +51,11 @@ public class IndirectInstancing : MonoBehaviour
         for (int i = 0; i < instanceCount; i++)
         {
             float angle = Random.Range(0.0f, Mathf.PI * 2.0f);
-            angle = 1;
             float distance = Random.Range(20.0f, 100.0f)/10;
             float height = Random.Range(-2.0f, 2.0f)*10;
             float size = Random.Range(0.05f, 0.25f);
-            positions[i] = new Vector4(Mathf.Sin(angle) * distance, height, Mathf.Cos(angle) * distance, 1);
+            //positions[i] = new Vector4(Mathf.Sin(angle) * distance, height, Mathf.Cos(angle) * distance, size);
+            positions[i] = new Vector4(distance, height, distance, 1);
         }
         positionBuffer.SetData(positions);
         instanceMaterial.SetBuffer("positionBuffer", positionBuffer);
